@@ -8,7 +8,7 @@ EMBEDDING_DIM = 8
 BATCH_SIZE = 16
 EPOCHS = 10
 
-
+    
 
 def main():
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -33,7 +33,7 @@ def main():
     # model
     bigram_model = BiGram(VOCAB_SIZE).to(device)
     H = bigram_model.train(X_train.to(device), y_train.to(device), X_validation.to(device), y_validation.to(device), epochs=EPOCHS)
-    # plot_metrics(H)
+    plot_metrics(H)
 
     # inference
     # print(bigram_model.generate(torch.tensor([0]).to(device), 100).tolist())
